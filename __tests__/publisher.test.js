@@ -33,27 +33,15 @@ describe('local-bookstore routes', () => {
   });
 
   it('should fetch a list of all publishers', async () => {
-    await Publisher.insert({
-      name: 'Danial J. Barrett',
-      city: 'New York',
-      state: 'NY',
-      country: 'SW',
-    });
-    await Publisher.insert({
-      name: 'Michael Brady',
-      city: 'Detroit',
-      state: 'MI',
-      country: 'US',
-    });
 
     const expected = [
       {
         publisher_id: expect.any(String),
-        name: 'Danial J. Barrett',
+        name: 'Fleming & Rezac, Inc.',
       },
       {
         publisher_id: expect.any(String),
-        name: 'Michael Brady',
+        name: 'Bamboozles',
       },
     ];
 

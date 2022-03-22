@@ -55,7 +55,13 @@ CREATE TABLE book_author (
 INSERT INTO
     book(title, publisher_id, released)
 VALUES
-    ('House of Sky and Breath', 1, 2000)
+    ('House of Sky and Breath', 3, 2000);
+
+INSERT INTO
+  publisher (name, city, state, country)
+VALUES
+  ('Fleming & Rezac, Inc.', 'Costa Mesa', 'TN', 'US'),
+  ('Bamboozles', 'Portland', 'OR', 'US');
 
 
 
