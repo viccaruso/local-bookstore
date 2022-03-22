@@ -1,7 +1,9 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
-DROP TABLE IF EXISTS publisher, author, book, reviewer, review;
+DROP TABLE IF EXISTS publisher, reviewer, review, book_author;
+DROP TABLE IF EXISTS author CASCADE;
+DROP TABLE IF EXISTS book CASCADE;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE publisher (
@@ -47,7 +49,7 @@ CREATE TABLE book_author (
     author_id BIGINT NOT NULL,
     book_id BIGINT NOT NULL,
     FOREIGN KEY (book_id) REFERENCES book (book_id),
-    FOREIGN KEY (author_id) REFERENCES author (author_id),
+    FOREIGN KEY (author_id) REFERENCES author (author_id)
 );
 
 

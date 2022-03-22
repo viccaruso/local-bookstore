@@ -13,22 +13,20 @@ describe('local-bookstore routes', () => {
   });
 
   it('Should insert new publisher into publisher table', async () => {
-    const res = await request(app)
-    .post('/api/v1/publishers')
-    .send({ 
-      name: 'Danial J. Barrett', 
-      city: 'New York', 
-      state: 'NY', 
-      country: 'SW'})
-
-      const expected = {
-        id: expect.any(String),
-        name: 'Danial J. Barrett', 
-        city: 'New York', 
-        state: 'NY', 
-        country: 'SW'
-      };
-      expect(res.body).toEqual(expected)
-  })
-
+    const res = await request(app).post('/api/v1/publishers').send({
+      name: 'Danial J. Barrett',
+      city: 'New York',
+      state: 'NY',
+      country: 'SW',
+    });
+    console.log(res.body);
+    const expected = {
+      publisher_id: expect.any(String),
+      name: 'Danial J. Barrett',
+      city: 'New York',
+      state: 'NY',
+      country: 'SW',
+    };
+    expect(res.body).toEqual(expected);
+  });
 });
