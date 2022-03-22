@@ -57,4 +57,23 @@ describe('local-bookstore routes', () => {
 
 
   });
+
+  it('should fetch a single publisher by id', async () => {
+    const publisher = await Publisher.insert({ name:  'Danial J. Barrett',
+    city: 'New York',
+    state: 'NY',
+    country: 'SW', });
+
+    const expected = {
+      publisher_id: expect.any(String),
+      name: 'Danial J. Barrett',
+      city: 'New York',
+      state: 'NY',
+      country: 'SW',
+    };
+
+    const res = await request(app).get(`/api/v1/publishers/${publisher.publisher_id}`);
+
+  expect(res.body).toEqual(expected);
+  });
 });
