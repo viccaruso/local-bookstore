@@ -97,14 +97,14 @@ describe('local-bookstore routes', () => {
     );
 
     const expected = {
-      id: expect.any(String),
+      publisher_id: expect.any(String),
       name: 'Danial J. Barrett',
       city: 'New York',
       state: 'NY',
       country: 'SW',
       books: [
         {
-          id: expect.any(String),
+          book_id: expect.any(String),
           title: 'House of Sky and Breath',
         },
       ],
