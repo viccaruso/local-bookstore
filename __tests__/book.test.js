@@ -36,9 +36,9 @@ describe('local-bookstore routes', () => {
     const expected = [
       {
         book_id: expect.any(String),
-        title: 'Stranger in a Strange Land',
+        title: 'House of Sky and Breath',
         publisher_id: expect.any(String),
-        released: 1975,
+        released: 2000,
       },
     ];
     const res = await request(app).get('/api/v1/books');
