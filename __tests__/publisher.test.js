@@ -31,7 +31,7 @@ describe('local-bookstore routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it('should fetch a lisst of all publishers', async () => {
+  it('should fetch a list of all publishers', async () => {
     await Publisher.insert({ name: 'Danial J. Barrett',
       city: 'New York',
       state: 'NY',
