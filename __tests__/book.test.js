@@ -37,12 +37,8 @@ describe('local-bookstore routes', () => {
       {
         book_id: expect.any(String),
         title: 'Stranger in a Strange Land',
-        publisher_id: 1,
+        publisher_id: expect.any(String),
         released: 1975,
-        publisher: {
-          publisher_id: expect.any(String),
-          name: 'Fleming & Rezac, Inc.',
-        },
       },
     ];
     const res = await request(app).get('/api/v1/books');
