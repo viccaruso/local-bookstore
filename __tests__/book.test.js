@@ -18,7 +18,7 @@ describe('local-bookstore routes', () => {
     const expected = {
       book_id: expect.any(String),
       title: 'Stranger in a Strange Land',
-      publisher_id: 1,
+      publisher_id: expect.any(String),
       released: 1975
     };
 
