@@ -25,8 +25,8 @@ CREATE TABLE book (
     book_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title TEXT NOT NULL,
     publisher_id BIGINT NOT NULL,
-    released SMALLINT NOT NULL,
-    best_seller BOOLEAN DEFAULT FALSE
+    -- FOREIGN KEY (publisher_id) REFERENCES publisher (publisher_id),
+    released SMALLINT NOT NULL
 );
 
 CREATE TABLE reviewer (
@@ -52,7 +52,10 @@ CREATE TABLE book_author (
     FOREIGN KEY (author_id) REFERENCES author (author_id)
 );
 
-
+INSERT INTO
+    book(title, publisher_id, released)
+VALUES
+    ('House of Sky and Breath', 1, 2000)
 
 
 
