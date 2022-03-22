@@ -44,15 +44,11 @@ describe('local-bookstore routes', () => {
     const expected = [{
       publisher_id: expect.any(String),
       name: 'Danial J. Barrett',
-      city: 'New York',
-      state: 'NY',
-      country: 'SW',
+      
     }, {
       publisher_id: expect.any(String),
       name: 'Michael Brady',
-      city: 'Detroit',
-      state: 'MI',
-      country: 'US', }];
+    }];
 
     const res = await request(app).get(
       '/api/v1/publishers'
