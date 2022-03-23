@@ -56,7 +56,7 @@ describe('local-bookstore routes', () => {
       book_id: expect.any(String),
       title: 'Stranger In a Strange Land',
       publisher: { publisher_id: '1', name: 'Fleming & Rezac, Inc.' },
-      released: '1961',
+      released: 1961,
       authors: [{ author_id: expect.any(String), name: 'Robert Heinlein' }],
       reviews: [
         {
@@ -71,7 +71,7 @@ describe('local-bookstore routes', () => {
       ],
     };
 
-    const res = await request(app).get(`/api/v1/books/${newBook.id}`);
+    const res = await request(app).get(`/api/v1/books/${newBook.book_id}`);
     expect(res.body).toEqual(expected);
   });
 });
