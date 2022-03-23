@@ -63,6 +63,26 @@ VALUES
   ('Fleming & Rezac, Inc.', 'Costa Mesa', 'TN', 'US'),
   ('Bamboozles', 'Portland', 'OR', 'US');
 
+  INSERT INTO review(
+rating,
+reviewer_id,
+review,
+book_id)
+Values (5, 1, 'Best book ever', 2);
+
+INSERT INTO reviewer(
+    name,
+    company
+)
+VALUES ('Jack', 'LRF');
+
+INSERT INTO author(
+    name,
+    dob,
+    pob
+)
+VALUES ('Robert Heinlein', 'July 07, 1907', 'Butler, MO' );
+
 
 
 
