@@ -3,6 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 const req = require('express/lib/request');
+const Author = require('../lib/models/Author');
 
 describe('local-bookstore routes', () => {
   beforeEach(() => {
@@ -43,5 +44,22 @@ describe('local-bookstore routes', () => {
     const res = await request(app).get('/api/v1/authors');
 
     expect(res.body).toEqual(author);
+  });
+
+  it('should get a single author by id', async () => {
+    const author = await Author.insert({
+      name: 'Robert Heinlein',
+      dob: '7/7/1907',
+      pob: 'Butler, MO',
+    });
+
+    const res = await request(app).get(`/api/v1/authors/${author.author_id}`);
+
+    expect(res.body).toEqual({
+      author_id: expect.any(String),
+      name: 'Robert Heinlein',
+      dob: '7/7/1907',
+      pob: 'Butler, MO',
+    });
   });
 });
