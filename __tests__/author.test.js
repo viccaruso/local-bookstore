@@ -23,7 +23,7 @@ describe('local-bookstore routes', () => {
     const res = await request(app).post('/api/v1/authors').send(author);
 
     expect(res.body).toEqual({
-      id: expect.any(String),
+      author_id: expect.any(String),
       name: 'Robert Heinlein',
       dob: '7/7/1907',
       pob: 'Butler, MO',
