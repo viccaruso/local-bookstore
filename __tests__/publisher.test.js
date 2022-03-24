@@ -21,7 +21,7 @@ describe('local-bookstore routes', () => {
       state: 'NY',
       country: 'SW',
     });
-    console.log(res.body);
+
     const expected = {
       publisher_id: expect.any(String),
       name: 'Danial J. Barrett',
