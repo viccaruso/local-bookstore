@@ -33,7 +33,6 @@ describe('local-bookstore routes', () => {
   });
 
   it('should fetch a list of all publishers', async () => {
-
     const expected = [
       {
         publisher_id: expect.any(String),
