@@ -81,7 +81,7 @@ INSERT INTO author(
     dob,
     pob
 )
-VALUES ('Robert Heinlein', '7/7/1907', 'Butler, MO' );
+VALUES ('Robert Heinlein', 'July 07, 1907', 'Butler, MO' );
 
 INSERT INTO book_author(
     author_id,
