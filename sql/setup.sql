@@ -47,9 +47,9 @@ CREATE TABLE review (
 
 CREATE TABLE book_author (
     author_id BIGINT NOT NULL,
-    book_id BIGINT NOT NULL,
-    FOREIGN KEY (book_id) REFERENCES book (book_id),
-    FOREIGN KEY (author_id) REFERENCES author (author_id)
+    book_id BIGINT NOT NULL
+    -- FOREIGN KEY (book_id) REFERENCES book (book_id),
+    -- FOREIGN KEY (author_id) REFERENCES author (author_id)
 );
 
 INSERT INTO
@@ -83,7 +83,11 @@ INSERT INTO author(
 )
 VALUES ('Robert Heinlein', 'July 07, 1907', 'Butler, MO' );
 
-
+INSERT INTO book_author(
+    author_id,
+    book_id
+)
+VALUES (1, 2);
 
 
 
