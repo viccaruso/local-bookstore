@@ -47,9 +47,9 @@ CREATE TABLE review (
 
 CREATE TABLE book_author (
     author_id BIGINT NOT NULL,
-    book_id BIGINT NOT NULL,
-    FOREIGN KEY (book_id) REFERENCES book (book_id),
-    FOREIGN KEY (author_id) REFERENCES author (author_id)
+    book_id BIGINT NOT NULL
+    -- FOREIGN KEY (book_id) REFERENCES book (book_id),
+    -- FOREIGN KEY (author_id) REFERENCES author (author_id)
 );
 
 INSERT INTO
@@ -63,7 +63,31 @@ VALUES
   ('Fleming & Rezac, Inc.', 'Costa Mesa', 'TN', 'US'),
   ('Bamboozles', 'Portland', 'OR', 'US');
 
+  INSERT INTO review(
+rating,
+reviewer_id,
+review,
+book_id)
+Values (5, 1, 'Best book ever', 2);
 
+INSERT INTO reviewer(
+    name,
+    company
+)
+VALUES ('Jack', 'LRF');
+
+INSERT INTO author(
+    name,
+    dob,
+    pob
+)
+VALUES ('Robert Heinlein', 'July 07, 1907', 'Butler, MO' );
+
+INSERT INTO book_author(
+    author_id,
+    book_id
+)
+VALUES (1, 2);
 
 
 
