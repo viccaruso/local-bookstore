@@ -31,9 +31,24 @@ describe('local-bookstore routes', () => {
       name: 'Bob Dylan', company: 'STAY ALIVE INC.'
     });
 
-    const expected =  [{ 'company': 'LRF', 'name': 'Jack', 'reviewer_id': '1' }, { 'company': 'STAY ALIVE INC.', 'name': 'Bob Dylan', 'reviewer_id': '2' }];
+    const expected = [{ 'company': 'LRF', 'name': 'Jack', 'reviewer_id': '1' }, { 'company': 'STAY ALIVE INC.', 'name': 'Bob Dylan', 'reviewer_id': '2' }];
 
     const res = await request(app).get('/api/v1/reviewers');
+
+    expect(res.body).toEqual(expected);
+  });
+
+  it('Gets a reviewer by id that includes all their reviews', async () => {
+    const reviewer = await Reviewer.insert({ name: 'Bob Dylan', company: 'STAY ALIVE INC.' });
+
+    const expected = {
+      'reviewer_id': expect.any(String),
+      'name': 'Bob Dylan',
+      'company': 'STAY ALIVE INC.',
+      'review': expect.any(Array)
+    };
+
+    const res = await request(app).get(`/api/v1/reviewers/${reviewer.reviewer_id}`);
 
     expect(res.body).toEqual(expected);
   });
