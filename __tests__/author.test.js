@@ -12,4 +12,19 @@ describe('local-bookstore routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('should list all authors', async () => {
+    const author = [
+      {
+        author_id: expect.any(String),
+        name: 'Robert Heinlein',
+        dob: 'July 07, 1907',
+        pob: 'Butler, MO',
+      },
+    ];
+
+    const res = await request(app).get('/api/v1/authors');
+
+    expect(res.body).toEqual(author);
+  });
 });
