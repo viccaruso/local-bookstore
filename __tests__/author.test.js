@@ -18,7 +18,7 @@ describe('local-bookstore routes', () => {
       {
         author_id: expect.any(String),
         name: 'Robert Heinlein',
-        dob: 'July 07, 1907',
+        dob: '7/7/1907',
         pob: 'Butler, MO',
       },
     ];
