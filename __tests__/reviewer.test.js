@@ -25,4 +25,20 @@ describe('local-bookstore routes', () => {
     expect(res.body).toEqual(expected);
 
   });
+
+  it('fetch a list of all reviewers', async () => {
+    const reviewer = await Reviewer.insert({
+      name: 'Bob Dylan', company: 'STAY ALIVE INC.'
+    });
+
+    const expected = {
+      reviewer_id: expect.any(String),
+      name: 'Bob Dylan',
+      company: 'STAY ALIVE INC.'
+    };
+
+    const res = await request(app).get(`/api/v1/reviewers/${reviewer.reviewer_id}`);
+
+    expect(res.body).toEqual(expected);
+  });
 });
