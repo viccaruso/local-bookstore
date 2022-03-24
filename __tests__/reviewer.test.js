@@ -27,17 +27,13 @@ describe('local-bookstore routes', () => {
   });
 
   it('fetch a list of all reviewers', async () => {
-    const reviewer = await Reviewer.insert({
+    await Reviewer.insert({
       name: 'Bob Dylan', company: 'STAY ALIVE INC.'
     });
 
-    const expected = {
-      reviewer_id: expect.any(String),
-      name: 'Bob Dylan',
-      company: 'STAY ALIVE INC.'
-    };
+    const expected =  [{ 'company': 'LRF', 'name': 'Jack', 'reviewer_id': '1' }, { 'company': 'STAY ALIVE INC.', 'name': 'Bob Dylan', 'reviewer_id': '2' }];
 
-    const res = await request(app).get(`/api/v1/reviewers/${reviewer.reviewer_id}`);
+    const res = await request(app).get('/api/v1/reviewers');
 
     expect(res.body).toEqual(expected);
   });
