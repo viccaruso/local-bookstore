@@ -13,6 +13,23 @@ describe('local-bookstore routes', () => {
     pool.end();
   });
 
+  it('should insert a new author', async () => {
+    const author = {
+      name: 'Robert Heinlein',
+      dob: '7/7/1907',
+      pob: 'Butler, MO',
+    };
+
+    const res = await request(app).post('/api/v1/authors').send(author);
+
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      name: 'Robert Heinlein',
+      dob: '7/7/1907',
+      pob: 'Butler, MO',
+    });
+  });
+
   it('should list all authors', async () => {
     const author = [
       {
