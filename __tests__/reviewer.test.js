@@ -93,7 +93,7 @@ describe('local-bookstore routes', () => {
 
     const expected = {
       reviewer_id: expect.any(String),
-      name: 'Jaques Bones',
+      name: 'Jaques',
       company: 'Beetle Juice Company',
     };
 
