@@ -68,8 +68,8 @@ VALUES
 
 INSERT INTO
   review(rating, reviewer_id, review, book_id)
-Values
-  (5, 2, 'Best book ever', 1);
+VALUES
+  (5, 1, 'Best book ever', 2);
 
 INSERT INTO
   reviewer(name, company)

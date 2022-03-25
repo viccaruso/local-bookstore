@@ -33,7 +33,7 @@ describe('local-bookstore routes', () => {
   });
 
   it('Should fetch top 100 reviews', async () => {
-    for (let i = 1; i < 150; i++) {
+    for (let i = 0; i < 150; i++) {
       await Review.insert({
         rating: Math.ceil(Math.random() * 5),
         reviewer_id: 1,
@@ -43,7 +43,8 @@ describe('local-bookstore routes', () => {
     }
 
     const res = await request(app).get('/api/v1/reviews');
-    // await console.log('RESPONSE : ', res.body);
     expect(res.body.length).toEqual(100);
+    expect(res.body[0] >= res.body[2]).toBe(true);
+    expect(res.body[5] >= res.body[99]).toBe(true);
   });
 });
