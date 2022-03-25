@@ -35,7 +35,7 @@ describe('local-bookstore routes', () => {
   it('Should fetch top 100 reviews', async () => {
     for (let i = 1; i < 150; i++) {
       Review.insert({
-        rating: Math.ciel(Math.random() * 5),
+        rating: Math.ceil(Math.random() * 5),
         reviewer_id: 1,
         review: 'ONE OF 100 VIEWS',
         book_id: 2,
