@@ -63,7 +63,7 @@ describe('local-bookstore routes', () => {
   });
 
   it('Should update a reviewers data', async () => {
-    const reviewer = Reviewer.insert({
+    const reviewer = await Reviewer.insert({
       name: 'Jaques',
       company: 'Beetle Juice Company',
     });
@@ -77,6 +77,7 @@ describe('local-bookstore routes', () => {
       name: 'Jaques Bones',
       company: 'Beetle Juice Company',
     };
+    console.log('ID CHECK', reviewer.reviewer_id);
 
     const res = await request(app)
       .patch(`/api/v1/reviewers/${reviewer.reviewer_id}`)
