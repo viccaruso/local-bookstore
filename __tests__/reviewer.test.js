@@ -77,7 +77,6 @@ describe('local-bookstore routes', () => {
       name: 'Jaques Bones',
       company: 'Beetle Juice Company',
     };
-    console.log('ID CHECK', reviewer.reviewer_id);
 
     const res = await request(app)
       .patch(`/api/v1/reviewers/${reviewer.reviewer_id}`)

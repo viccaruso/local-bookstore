@@ -20,7 +20,7 @@ describe('local-bookstore routes', () => {
       review: 'This book was exquisite',
       book_id: 1,
     });
-    
+
     const expected = {
       review_id: expect.any(String),
       reviewer_id: '1',
@@ -32,4 +32,19 @@ describe('local-bookstore routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('Should fetch top 100 reviews', async () => {
+    for (let i = 0; i < 150; i++) {
+      await Review.insert({
+        rating: Math.ceil(Math.random() * 5),
+        reviewer_id: 1,
+        review: 'ONE OF 100 VIEWS',
+        book_id: 1,
+      });
+    }
+
+    const res = await request(app).get('/api/v1/reviews');
+    expect(res.body.length).toEqual(100);
+    expect(res.body[0] >= res.body[2]).toBe(true);
+    expect(res.body[5] >= res.body[99]).toBe(true);
+  });
 });
