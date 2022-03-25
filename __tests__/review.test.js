@@ -23,10 +23,10 @@ describe('local-bookstore routes', () => {
     
     const expected = {
       review_id: expect.any(String),
-      reviewer_id: 1,
+      reviewer_id: '1',
       rating: 5,
       review: 'This book was exquisite',
-      book_id: 1,
+      book_id: '1',
     };
 
     expect(res.body).toEqual(expected);
