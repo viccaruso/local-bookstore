@@ -84,4 +84,21 @@ describe('local-bookstore routes', () => {
 
     expect(res.body).toEqual(expected);
   });
+
+  it('Should delete a reviewer if they don\'t have any reviews', async () => {
+    const reviewer = await Reviewer.insert({
+      name: 'Jaques',
+      company: 'Beetle Juice Company',
+    });
+
+    const expected = {
+      reviewer_id: expect.any(String),
+      name: 'Jaques Bones',
+      company: 'Beetle Juice Company',
+    };
+
+    const res = await request(app).delete(`/api/v1/reviewers/${reviewer.reviewer_id}`);
+    expect(res.body).toEqual(expected);
+    expect(await Reviewer.getById(reviewer.reviewer_id)).toBeNull();
+  });
 });
