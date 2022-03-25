@@ -44,7 +44,27 @@ describe('local-bookstore routes', () => {
 
     const res = await request(app).get('/api/v1/reviews');
     expect(res.body.length).toEqual(100);
-    expect(res.body[0] >= res.body[2]).toBe(true);
+    // expect(res.body[0] >= res.body[2]).toBe(true);
     expect(res.body[5] >= res.body[99]).toBe(true);
+  });
+
+  it('Should delete a review by id', async () => {
+    const review = await Review.insert({
+      rating: Math.ceil(Math.random() * 5),
+      reviewer_id: 1,
+      review: 'ONE OF 100 VIEWS',
+      book_id: 1,
+    });
+  
+    const expected = {
+      rating: expect.any(Number),
+      reviewer_id: '1',
+      review: 'ONE OF 100 VIEWS',
+      book_id: '1',
+      review_id: expect.any(String)
+    };
+
+    const res = await request(app).delete(`/api/v1/reviews/${review.review_id}`);
+    expect(res.body).toEqual(expected);
   });
 });
